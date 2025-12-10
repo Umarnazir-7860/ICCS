@@ -47,7 +47,7 @@ const CoreValuesSection = () => {
   const [hovered, setHovered] = useState(false);
 
   return (
-    <section className="bg-gray-50 py-20">
+    <section className="bg-gray-50">
       <div  
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
@@ -65,7 +65,7 @@ const CoreValuesSection = () => {
             initial={{ width: 0, }}
             animate={hovered ? { width: "17%" } : { width: 0 }}
             transition={{ duration: 1.2, ease: "easeInOut" }}
-            className="h-1 bg-[#12066a]  mt-2 rounded-full mb-6 mx-auto"
+            className="h-1 bg-[#12066a]  rounded-full mb-0 mx-auto"
           />
 
         <motion.p

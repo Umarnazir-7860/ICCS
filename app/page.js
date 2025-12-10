@@ -18,10 +18,11 @@ export default function HomePage() {
       <div
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className="max-w-7xl mx-auto py-16 px-4 md:px-8 flex flex-col md:flex-row items-center gap-8"
+        className="max-w-7xl mx-auto py-16 px-4 flex flex-col md:flex-col md:items-start lg:flex-row md:w-full items-center gap-8"
       >
         {/* Text Section */}
-        <div className="md:w-1/2">
+       <div className="w-full lg:w-1/2">
+
           <motion.h2
             initial={{ opacity: 0, y: -20 }}
             animate={
@@ -76,7 +77,7 @@ export default function HomePage() {
           initial={{ x: 100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="md:w-1/2 relative h-64 md:h-96 rounded-xl overflow-hidden shadow-lg"
+          className="md:w-full lg:w-1/2 relative h-64 md:h-96 rounded-xl overflow-hidden shadow-lg"
         >
           <Image
             src="/iccs-home-about.jpg"
@@ -106,7 +107,7 @@ export default function HomePage() {
           transition={{ duration: 1.2, ease: "easeInOut" }}
           className="h-1 bg-[#12066a]  mt-2 rounded-full mb-6 mx-auto"
         />
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="bg-white p-6 rounded-xl border-2 border-[#12066a] shadow-lg hover:shadow-2xl transition">
             <h3 className="text-xl  text-[#12066a] font-bold mb-3">
               Computer Sciences
@@ -192,7 +193,7 @@ export default function HomePage() {
       </section>
 
       {/* Contact / Call-to-action Section */}
-      <div className="max-w-7xl py-16 px-4 md:px-8 text-center bg-gradient-to-r from-[#12066a] to-[#997819] text-white rounded-xl mb-16 mx-auto">
+      <div className="max-w-7xl py-16 px-4 md:px-8 text-center sm:m-7 bg-gradient-to-r from-[#12066a] to-[#997819] text-white rounded-xl mb-16 mx-auto">
         <h2 className="text-4xl font-bold mb-4">Join Our Programs Today</h2>
         <p className="mb-6">
           Apply now and become a part of our growing community of learners.

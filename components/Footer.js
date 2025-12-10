@@ -38,7 +38,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-[#12066a] text-white py-10 mr-[-250px] mt-[-35px]  md:px-8">
+    <footer className="bg-[#12066a] text-white py-10 mr-[-250px] mt-[35px]  md:px-8">
       <div className="max-w-7xl mx-auto grid grid-cols-1 ml-20 gap-8 md:grid-cols-4 lg:grid-cols-5">
         {/* === Column 1: College Info === */}
         <div className="col-span-1 md:col-span-2 lg:col-span-1">
