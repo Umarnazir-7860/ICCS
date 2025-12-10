@@ -21,7 +21,7 @@ const Navbar = () => {
       ],
     },
     {
-      name: 'Courses',
+      name: 'Courses',href:'/cources',
       submenu: [
         { name: 'Dept of Aesthetic & Beauty Sciences', href: '/courses/aesthetic-beauty' },
         { name: 'Dept of Management Sciences', href: '/courses/management' },

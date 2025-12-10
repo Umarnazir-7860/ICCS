@@ -91,20 +91,21 @@ export default function HomePage() {
       <CoreValues />
 
       {/* Courses Section */}
-      <div 
-       onMouseEnter={() => setHovered(true)}
+      <div
+        onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-      className="max-w-7xl mx-auto py-16 px-4 md:px-8 bg-white">
-        <h2 className="text-4xl font-bold text-center text-[#12066a] ">
+        className="max-w-7xl mx-auto py-16 px-4 md:px-8 bg-white"
+      >
+        <h2 className="text-5xl font-bold text-center text-[#12066a] ">
           Our Courses
         </h2>
-          {/* Animated Divider Line */}
+        {/* Animated Divider Line */}
         <motion.div
-            initial={{ width: 0, }}
-            animate={hovered ? { width: "14%" } : { width: 0 }}
-            transition={{ duration: 1.2, ease: "easeInOut" }}
-            className="h-1 bg-[#12066a]  mt-2 rounded-full mb-6 mx-auto"
-          />
+          initial={{ width: 0 }}
+          animate={hovered ? { width: "14%" } : { width: 0 }}
+          transition={{ duration: 1.2, ease: "easeInOut" }}
+          className="h-1 bg-[#12066a]  mt-2 rounded-full mb-6 mx-auto"
+        />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="bg-white p-6 rounded-xl border-2 border-[#12066a] shadow-lg hover:shadow-2xl transition">
             <h3 className="text-xl  text-[#12066a] font-bold mb-3">
@@ -141,8 +142,57 @@ export default function HomePage() {
         </div>
       </div>
 
+ {/* Facility section */}
+      <section className="bg-white py-16">
+        <div className="max-w-7xl mx-auto px-4 text-center mb-12">
+          <motion.h2
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="text-5xl font-bold text-[#12066a]"
+          >
+            Our Facilities
+          </motion.h2>
+        </div>
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Each facility card */}
+          
+          {/* 1st Card */}
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="bg-gray-50 rounded-xl shadow-lg p-6"
+          >
+            <Image  src="/lab1.jpg" width={400} height={100} alt="Computer Lab" className="rounded-lg" />
+            <h3 className="mt-4 font-bold text-black text-xl">Computer Lab</h3>
+            <p className="text-gray-700 mt-1">Modern computers are highly advanced machines capable of performing complex tasks at incredible speeds.</p>
+          </motion.div>
+           
+           {/* 2nd Card */}
+           <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="bg-gray-50 rounded-xl shadow-lg p-6"
+          >
+            <Image  src="/prc.jpg" width={735} height={490} alt="Computer Lab" className="rounded-lg" />
+            <h3 className="mt-4 font-bold text-black text-xl">Aesthetic & Beauty Sciences Lab</h3>
+            <p className="text-gray-700 mt-1">Hands-on training lab for beauty, aesthetics, and wellness sciences programs.</p>
+          </motion.div>
+           
+           {/* 3rd Card  */}
+           <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="bg-gray-50 rounded-xl shadow-lg p-6"
+          >
+            <Image  src="/english-language-lab.jpg" width={500} height={20} alt="Computer Lab" className="rounded-lg" />
+            <h3 className="mt-4 font-bold text-black text-xl">English Language Lab</h3>
+            <p className="text-gray-700 mt-1">Interactive lab to improve communication, speaking, and writing skills for global readiness.</p>
+          </motion.div>
+          {/* Repeat for other labs/facilities */}
+        </div>
+        
+      </section>
+
       {/* Contact / Call-to-action Section */}
-      <div className="max-w-7xl py-16 px-4   md:px-8 text-center bg-gradient-to-r from-[#12066a] to-[#997819] text-white rounded-xl mx-10 my-10">
+      <div className="max-w-7xl py-16 px-4 md:px-8 text-center bg-gradient-to-r from-[#12066a] to-[#997819] text-white rounded-xl mb-16 mx-auto">
         <h2 className="text-4xl font-bold mb-4">Join Our Programs Today</h2>
         <p className="mb-6">
           Apply now and become a part of our growing community of learners.
@@ -154,6 +204,6 @@ export default function HomePage() {
           Apply Now
         </Link>
       </div>
-    </div>
+ </div>
   );
 }
