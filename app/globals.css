@@ -4,5 +4,13 @@
 /* Global overflow control */
 html, body {
   overflow-x: hidden; /* horizontally scroll na ho */
-  overflow-y: auto;   /* vertical scroll normal rahe */
+  overflow-y: auto; 
+  background-color:white ; 
+ 
+   /* vertical scroll normal rahe */
+}
+/* globals.css */
+body, html {
+  margin: 0;
+  padding: 0;
 }

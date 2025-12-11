@@ -65,7 +65,7 @@ const Carousel = () => {
                 {/* Overlay text */}
                 <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
                   <motion.h2
-                    className="text-white text-3xl md:text-5xl font-bold text-center px-4"
+                    className="text-white text-2xl md:text-5xl font-bold text-center px-4"
                     initial={{ opacity: 0, y: -50 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3, duration: 0.8 }}
@@ -75,7 +75,7 @@ const Carousel = () => {
                 </div>
 
                 {/* Navigation buttons */}
-                <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 justify-between">
+                <div className="absolute  left-1 right-1 top-1/2 flex -translate-y-1/2 justify-between">
                   <button
                     onClick={() =>
                       setCurrentSlide(

@@ -39,9 +39,9 @@ const Footer = () => {
 
   return (
     <footer className="bg-[#12066a] text-white py-10 mr-[-250px] mt-[35px]  md:px-8">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 ml-20 gap-8 md:grid-cols-4 lg:grid-cols-5">
+      <div className="max-w-full mr-70 md:mr-0 grid grid-cols-1 ml-5 gap-8 md:grid-cols-1 lg:grid lg:grid-cols-5">
         {/* === Column 1: College Info === */}
-        <div className="col-span-1 md:col-span-2 lg:col-span-1">
+        <div className="col-span-1 md:col-span-1 lg:col-span-1">
           <div className="mb-4">
             {/* Replace with your actual logo image path */}
             <Image
@@ -49,10 +49,10 @@ const Footer = () => {
               alt="International College of Contemporary Sciences Logo"
               width={200}
               height={60}
-              className="mb-2"
+              className="mb-2 rounded-xl"
             />
           </div>
-          <p className="text-sm leading-relaxed mb-4">
+          <p className="text-sm leading-relaxed sm:mr-70 lg:mr-0 mb-4">
             <span className="font-bold">
               International College Of Contemporary Sciences (ICCS)
             </span>{" "}
@@ -132,7 +132,7 @@ const Footer = () => {
         </div>
 
         {/* === Column 4: Contact Us & Map === */}
-        <div className="col-span-1">
+        <div className="col-span-1 mx-auto ml-0">
           <h3 className="text-lg font-bold mb-4">Contact Us:</h3>
           <div className="space-y-3 mb-6 text-sm">
           

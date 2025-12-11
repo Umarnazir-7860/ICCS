@@ -1,13 +1,32 @@
 "use client";
 import Carousel from "@/components/Carousel";
 import Link from "next/link";
-import { motion, useAnimation } from "framer-motion";
-import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { useState } from "react";
 import Image from "next/image";
 import CoreValues from "@/components/CoreValues";
+import { useInView } from "react-intersection-observer";
 
 export default function HomePage() {
   const [hovered, setHovered] = useState(false);
+
+  // useInView hooks for mobile/scroll animations
+  const [aboutRef, aboutInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
+  const [coursesRef, coursesInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
+  const [facilitiesRef, facilitiesInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
+
+  const aboutAnimate = hovered || aboutInView;
+  const coursesAnimate = hovered || coursesInView;
+  const facilitiesAnimate = hovered || facilitiesInView;
 
   return (
     <div className="bg-gray-50">
@@ -16,38 +35,36 @@ export default function HomePage() {
 
       {/* About Section */}
       <div
+        ref={aboutRef}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className="max-w-7xl mx-auto py-16 px-4 flex flex-col md:flex-col md:items-start lg:flex-row md:w-full items-center gap-8"
+        className="max-w-7xl mx-auto py-6 px-4 mt-5 flex flex-col md:flex-col md:items-start lg:flex-row md:w-full items-center gap-8"
       >
         {/* Text Section */}
-       <div className="w-full lg:w-1/2">
-
+        <div className="w-full lg:w-1/2 ">
           <motion.h2
             initial={{ opacity: 0, y: -20 }}
             animate={
-              hovered
-                ? { opacity: [0, 1, 1], y: [0, -20, -20] }
-                : { opacity: 1, y: -20 }
+              aboutAnimate ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }
             }
             transition={{ duration: 1 }}
-            className="text-5xl font-bold text-[#12066a] "
+            className="text-5xl font-bold text-[#12066a]"
           >
             About Us
           </motion.h2>
-          {/* Animated Divider Line */}
+
+          {/* Divider */}
           <motion.div
-            initial={{ width: 0, y: -15 }}
-            animate={hovered ? { width: "35%" } : { width: 0 }}
-            transition={{ duration: 1.2, ease: "easeInOut" }}
-            className="h-1 bg-[#12066a]  rounded-full mb-6"
+            initial={{ width: 0 }}
+            animate={coursesAnimate ? { width: "28%" } : { width: 0 }}
+            transition={{ duration: 0.7, ease: "easeInOut" }}
+            className="h-1 bg-[#12066a] mt-2 rounded-full mb-6 "
           />
+
           <motion.p
             initial={{ opacity: 0, y: -20 }}
             animate={
-              hovered
-                ? { opacity: [0, 1, 1], y: [0, -20, -20] }
-                : { opacity: 1, y: -20 }
+              aboutAnimate ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }
             }
             transition={{ duration: 1.7 }}
             className="text-black mt-0"
@@ -75,15 +92,16 @@ export default function HomePage() {
         {/* Image Section */}
         <motion.div
           initial={{ x: 100, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
+          animate={aboutAnimate ? { x: 0, opacity: 1 } : { x: 100, opacity: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="md:w-full lg:w-1/2 relative h-64 md:h-96 rounded-xl overflow-hidden shadow-lg"
+          className="md:w-full lg:w-1/2 relative rounded-lg overflow-hidden shadow-lg"
         >
           <Image
             src="/iccs-home-about.jpg"
             alt="About ICC College"
-            fill
-            className="object-cover"
+            width={600}
+            height={300}
+          
           />
         </motion.div>
       </div>
@@ -93,23 +111,27 @@ export default function HomePage() {
 
       {/* Courses Section */}
       <div
+        ref={coursesRef}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className="max-w-7xl mx-auto py-16 px-4 md:px-8 bg-white"
+        className="max-w-7xl mx-auto py-16 px-4 mb-5 md:px-8 bg-white"
       >
-        <h2 className="text-5xl font-bold text-center text-[#12066a] ">
+        <h2 className="text-4xl md:text-5xl font-bold  text-center text-[#12066a]">
           Our Courses
         </h2>
-        {/* Animated Divider Line */}
+
+        {/* Divider */}
         <motion.div
           initial={{ width: 0 }}
-          animate={hovered ? { width: "14%" } : { width: 0 }}
+          animate={coursesAnimate ? { width: "12%" } : { width: 0 }}
           transition={{ duration: 1.2, ease: "easeInOut" }}
-          className="h-1 bg-[#12066a]  mt-2 rounded-full mb-6 mx-auto"
+          className="h-1 bg-[#12066a] mt-2 rounded-full mb-10 mx-auto"
         />
+
         <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Computer Sciences */}
           <div className="bg-white p-6 rounded-xl border-2 border-[#12066a] shadow-lg hover:shadow-2xl transition">
-            <h3 className="text-xl  text-[#12066a] font-bold mb-3">
+            <h3 className="text-xl text-[#12066a] font-bold mb-3">
               Computer Sciences
             </h3>
             <p className="text-black">
@@ -120,7 +142,9 @@ export default function HomePage() {
               confident and job-ready.
             </p>
           </div>
-          <div className="bg-white p-6 rounded-xl border-2 border-[#12066a]  shadow-lg hover:shadow-2xl transition">
+
+          {/* Management Sciences */}
+          <div className="bg-white p-6 rounded-xl border-2 border-[#12066a] shadow-lg hover:shadow-2xl transition">
             <h3 className="text-xl font-bold text-[#12066a] mb-3">
               Management Sciences
             </h3>
@@ -130,7 +154,9 @@ export default function HomePage() {
               expertise to excel in your chosen career.
             </p>
           </div>
-          <div className="bg-gray-100 p-6 rounded-xl border-2 border-[#12066a]  shadow-lg hover:shadow-2xl transition">
+
+          {/* Aesthetic & Beauty Sciences */}
+          <div className="bg-white p-6 rounded-xl border-2 border-[#12066a] shadow-lg hover:shadow-2xl transition">
             <h3 className="text-xl text-[#12066a] font-bold mb-3">
               Aesthetic & Beauty Sciences
             </h3>
@@ -143,58 +169,91 @@ export default function HomePage() {
         </div>
       </div>
 
- {/* Facility section */}
-      <section className="bg-white py-16">
-        <div className="max-w-7xl mx-auto px-4 text-center mb-12">
+      {/* Facility Section */}
+      <section className="bg-white mx-5 mt-0" ref={facilitiesRef}>
+        <div className="max-w-7xl mx-auto px-4 text-center mb-5">
           <motion.h2
             initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            animate={
+              facilitiesAnimate ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }
+            }
             transition={{ duration: 1 }}
-            className="text-5xl font-bold text-[#12066a]"
+            className="text-4xl md:text-5xl  font-bold text-[#12066a]"
           >
             Our Facilities
           </motion.h2>
         </div>
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Each facility card */}
-          
-          {/* 1st Card */}
+
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 ml-2 mr-2 gap-8">
+          {/* Computer Lab */}
           <motion.div
             whileHover={{ scale: 1.05 }}
+            animate={facilitiesAnimate ? { scale: 1.05 } : { scale: 1 }}
             className="bg-gray-50 rounded-xl shadow-lg p-6"
           >
-            <Image  src="/lab1.jpg" width={400} height={100} alt="Computer Lab" className="rounded-lg" />
+            <Image
+              src="/lab1.jpg"
+              width={400}
+              height={100}
+              alt="Computer Lab"
+              className="rounded-lg"
+            />
             <h3 className="mt-4 font-bold text-black text-xl">Computer Lab</h3>
-            <p className="text-gray-700 mt-1">Modern computers are highly advanced machines capable of performing complex tasks at incredible speeds.</p>
+            <p className="text-gray-700 mt-1">
+              Modern computers are highly advanced machines capable of
+              performing complex tasks at incredible speeds.
+            </p>
           </motion.div>
-           
-           {/* 2nd Card */}
-           <motion.div
+
+          {/* Aesthetic & Beauty Sciences Lab */}
+          <motion.div
             whileHover={{ scale: 1.05 }}
+            animate={facilitiesAnimate ? { scale: 1.05 } : { scale: 1 }}
             className="bg-gray-50 rounded-xl shadow-lg p-6"
           >
-            <Image  src="/prc.jpg" width={735} height={490} alt="Computer Lab" className="rounded-lg" />
-            <h3 className="mt-4 font-bold text-black text-xl">Aesthetic & Beauty Sciences Lab</h3>
-            <p className="text-gray-700 mt-1">Hands-on training lab for beauty, aesthetics, and wellness sciences programs.</p>
+            <Image
+              src="/prc.jpg"
+              width={735}
+              height={490}
+              alt="Beauty Lab"
+              className="rounded-lg"
+            />
+            <h3 className="mt-4 font-bold text-black text-xl">
+              Aesthetic & Beauty Sciences Lab
+            </h3>
+            <p className="text-gray-700 mt-1">
+              Hands-on training lab for beauty, aesthetics, and wellness
+              sciences programs.
+            </p>
           </motion.div>
-           
-           {/* 3rd Card  */}
-           <motion.div
+
+          {/* English Language Lab */}
+          <motion.div
             whileHover={{ scale: 1.05 }}
+            animate={facilitiesAnimate ? { scale: 1.05 } : { scale: 1 }}
             className="bg-gray-50 rounded-xl shadow-lg p-6"
           >
-            <Image  src="/english-language-lab.jpg" width={500} height={20} alt="Computer Lab" className="rounded-lg" />
-            <h3 className="mt-4 font-bold text-black text-xl">English Language Lab</h3>
-            <p className="text-gray-700 mt-1">Interactive lab to improve communication, speaking, and writing skills for global readiness.</p>
+            <Image
+              src="/english-language-lab.jpg"
+              width={500}
+              height={100}
+              alt="English Lab"
+              className="rounded-lg"
+            />
+            <h3 className="mt-4 font-bold text-black text-xl">
+              English Language Lab
+            </h3>
+            <p className="text-gray-700 mt-1">
+              Interactive lab to improve communication, speaking, and writing
+              skills for global readiness.
+            </p>
           </motion.div>
-          {/* Repeat for other labs/facilities */}
         </div>
-        
       </section>
 
-      {/* Contact / Call-to-action Section */}
-      <div className="max-w-7xl py-16 px-4 md:px-8 text-center sm:m-7 bg-gradient-to-r from-[#12066a] to-[#997819] text-white rounded-xl mb-16 mx-auto">
-        <h2 className="text-4xl font-bold mb-4">Join Our Programs Today</h2>
+      {/* Contact / Call-to-action */}
+      <div className="max-w-7xl py-16 px-4 md:px-8 text-center  ml-2 mr-2 sm:m-7 bg-gradient-to-r from-[#12066a] to-[#997819] text-white rounded-xl mb-10 mx-auto">
+        <h2 className="text-4xl font-bold  mb-4">Join Our Programs Today</h2>
         <p className="mb-6">
           Apply now and become a part of our growing community of learners.
         </p>
@@ -205,6 +264,6 @@ export default function HomePage() {
           Apply Now
         </Link>
       </div>
- </div>
+    </div>
   );
 }

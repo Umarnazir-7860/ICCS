@@ -52,7 +52,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white shadow-md fixed w-[calc(100%-5rem)] mx-10 mt-4 rounded-lg z-50">
+    <nav className="bg-white shadow-md fixed w-[calc(100%-2rem)] md:w-[calc(100%-5rem)] mx-4 md:mx-10 mt-5 md:mt-5  rounded-lg z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
         {/* Logo */}
         <div className="flex-shrink-0">
