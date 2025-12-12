@@ -28,9 +28,9 @@ const Achievements = () => {
               key={item.id}
               initial={{ opacity: 0, x: 100 }}
               whileInView={{ opacity: 1, x: 0 }}
-              whileHover={{ scale: 1.1 }}
+             
               transition={{ delay: item.delay, ease: easeIn }}
-              className="bg-white rounded-xl shadow-lg p-8"
+              className="bg-white rounded-xl shadow-lg p-8 transition-transform hover:scale-105"
             >
               <h3 className="text-4xl font-bold text-[#997819] mb-2">
                 {item.value}
