@@ -10,19 +10,10 @@ import { useInView } from "react-intersection-observer";
 export default function HomePage() {
   const [hovered, setHovered] = useState(false);
 
-  // useInView hooks for mobile/scroll animations
-  const [aboutRef, aboutInView] = useInView({
-    triggerOnce: true,
-    threshold: 0.2,
-  });
-  const [coursesRef, coursesInView] = useInView({
-    triggerOnce: true,
-    threshold: 0.2,
-  });
-  const [facilitiesRef, facilitiesInView] = useInView({
-    triggerOnce: true,
-    threshold: 0.2,
-  });
+  // useInView hooks for scroll animations (no once:true)
+  const [aboutRef, aboutInView] = useInView({ threshold: 0.2 });
+  const [coursesRef, coursesInView] = useInView({ threshold: 0.2 });
+  const [facilitiesRef, facilitiesInView] = useInView({ threshold: 0.2 });
 
   const aboutAnimate = hovered || aboutInView;
   const coursesAnimate = hovered || coursesInView;
@@ -56,9 +47,9 @@ export default function HomePage() {
           {/* Divider */}
           <motion.div
             initial={{ width: 0 }}
-            animate={coursesAnimate ? { width: "28%" } : { width: 0 }}
+            whileInView={{ width: "28%" }}
             transition={{ duration: 0.7, ease: "easeInOut" }}
-            className="h-1 bg-[#12066a] mt-2 rounded-full mb-6 "
+            className="h-1.5 bg-[#12066a] mt-2 rounded-full mb-6 "
           />
 
           <motion.p
@@ -101,7 +92,6 @@ export default function HomePage() {
             alt="About ICC College"
             width={600}
             height={300}
-          
           />
         </motion.div>
       </div>
@@ -116,21 +106,22 @@ export default function HomePage() {
         onMouseLeave={() => setHovered(false)}
         className="max-w-7xl mx-auto py-16 px-4 mb-5 md:px-8 bg-white"
       >
-        <h2 className="text-4xl md:text-5xl font-bold  text-center text-[#12066a]">
+        <h2 className="text-4xl md:text-5xl font-bold text-center text-[#12066a]">
           Our Courses
         </h2>
 
         {/* Divider */}
         <motion.div
           initial={{ width: 0 }}
-          animate={coursesAnimate ? { width: "12%" } : { width: 0 }}
+          whileInView={{ width: "12%" }}
           transition={{ duration: 1.2, ease: "easeInOut" }}
-          className="h-1 bg-[#12066a] mt-2 rounded-full mb-10 mx-auto"
+          className="h-1.5 bg-[#12066a] mt-2 rounded-full mb-10 mx-auto"
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-8 ">
           {/* Computer Sciences */}
-          <div className="bg-white p-6 rounded-xl border-2 border-[#12066a] shadow-lg hover:shadow-2xl transition">
+          <div className="bg-white p-6 rounded-xl border-2 border-[#12066a]
+           shadow-lg hover:shadow-2xl transition-transform hover:scale-105">
             <h3 className="text-xl text-[#12066a] font-bold mb-3">
               Computer Sciences
             </h3>
@@ -144,7 +135,8 @@ export default function HomePage() {
           </div>
 
           {/* Management Sciences */}
-          <div className="bg-white p-6 rounded-xl border-2 border-[#12066a] shadow-lg hover:shadow-2xl transition">
+          <div className="bg-white p-6 rounded-xl border-2 border-[#12066a] shadow-lg hover:shadow-2xl
+           transition-transform hover:scale-105">
             <h3 className="text-xl font-bold text-[#12066a] mb-3">
               Management Sciences
             </h3>
@@ -156,7 +148,8 @@ export default function HomePage() {
           </div>
 
           {/* Aesthetic & Beauty Sciences */}
-          <div className="bg-white p-6 rounded-xl border-2 border-[#12066a] shadow-lg hover:shadow-2xl transition">
+          <div className="bg-white p-6 rounded-xl border-2 border-[#12066a] 
+          shadow-lg hover:shadow-2xl transition-transform hover:scale-105">
             <h3 className="text-xl text-[#12066a] font-bold mb-3">
               Aesthetic & Beauty Sciences
             </h3>
@@ -171,16 +164,24 @@ export default function HomePage() {
 
       {/* Facility Section */}
       <section className="bg-white mx-5 mt-0" ref={facilitiesRef}>
-        <div className="max-w-7xl mx-auto px-4 text-center mb-5">
+        <div className="max-w-7xl mx-auto px-4  text-center mb-5">
           <motion.h2
             initial={{ opacity: 0, y: -20 }}
             animate={
               facilitiesAnimate ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }
             }
             transition={{ duration: 1 }}
-            className="text-4xl md:text-5xl  font-bold text-[#12066a]"
+            className="text-4xl  md:text-5xl font-bold text-[#12066a]"
           >
             Our Facilities
+               {/* Divider */}
+        <motion.div
+          initial={{ width: 0 }}
+          whileInView={{ width: "17%" }}
+          transition={{ duration: 1.2, ease: "easeInOut" }}
+          className="h-1.5 bg-[#12066a] mt-2 rounded-full mb-10 mx-auto"
+        />
+
           </motion.h2>
         </div>
 
@@ -189,7 +190,8 @@ export default function HomePage() {
           <motion.div
             whileHover={{ scale: 1.05 }}
             animate={facilitiesAnimate ? { scale: 1.05 } : { scale: 1 }}
-            className="bg-gray-50 rounded-xl shadow-lg p-6"
+            className="bg-gray-50 rounded-xl shadow-lg p-6 transition-transform hover:scale-105 "
+            
           >
             <Image
               src="/lab1.jpg"
@@ -209,7 +211,7 @@ export default function HomePage() {
           <motion.div
             whileHover={{ scale: 1.05 }}
             animate={facilitiesAnimate ? { scale: 1.05 } : { scale: 1 }}
-            className="bg-gray-50 rounded-xl shadow-lg p-6"
+            className="bg-gray-50 rounded-xl shadow-lg p-6 transition-transform hover:scale-105"
           >
             <Image
               src="/prc.jpg"
@@ -230,8 +232,8 @@ export default function HomePage() {
           {/* English Language Lab */}
           <motion.div
             whileHover={{ scale: 1.05 }}
-            animate={facilitiesAnimate ? { scale: 1.05 } : { scale: 1 }}
-            className="bg-gray-50 rounded-xl shadow-lg p-6"
+            animate={facilitiesAnimate ? { scale: 1.05 } : { scale: 1.05 }}
+            className="bg-gray-50 rounded-xl shadow-lg p-6 transition-transform hover:scale-105"
           >
             <Image
               src="/english-language-lab.jpg"
@@ -252,18 +254,26 @@ export default function HomePage() {
       </section>
 
       {/* Contact / Call-to-action */}
-      <div className="max-w-7xl py-16 px-4 md:px-8 text-center  ml-2 mr-2 sm:m-7 bg-gradient-to-r from-[#12066a] to-[#997819] text-white rounded-xl mb-10 mx-auto">
-        <h2 className="text-4xl font-bold  mb-4">Join Our Programs Today</h2>
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.5 }}
+        className="max-w-7xl py-16 px-4 md:px-8 text-center 
+        ml-2 mr-2 sm:mx-7 sm:mt-7 md:my-20 md:mx-20 bg-gradient-to-r from-[#12066a] to-[#997819] 
+       text-white rounded-xl mb-10 mx-auto"
+      >
+        <h2 className="text-4xl font-bold mb-4">Join Our Programs Today</h2>
         <p className="mb-6">
           Apply now and become a part of our growing community of learners.
         </p>
         <Link
           href="/apply"
-          className="px-6 py-3 bg-white text-black font-semibold rounded-lg hover:scale-105 transform transition"
+          className="px-6 py-3 bg-white text-black font-semibold rounded-lg hover:scale-105 
+          transform transition"
         >
           Apply Now
         </Link>
-      </div>
+      </motion.div>
     </div>
   );
 }

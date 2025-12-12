@@ -63,9 +63,9 @@ const CoreValuesSection = () => {
           {/* Animated Divider Line */}
         <motion.div
             initial={{ width: 0, }}
-            animate={hovered ? { width: "14%" } : { width: 0 }}
+            whileInView={{ width: "20%" }}
             transition={{ duration: 1.2, ease: "easeInOut" }}
-            className="h-1 bg-[#12066a] mt-2 rounded-full mb-5 mx-auto"
+            className="h-1.5 bg-[#12066a] mt-2 rounded-full mb-5 mx-auto"
           />
 
         <motion.p
