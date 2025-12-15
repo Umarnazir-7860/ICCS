@@ -21,7 +21,7 @@ export default function HomePage() {
 
   return (
     <div className="bg-gray-50">
-      {/* Carousel */}
+      {/* Hero Section Carousel */}
       <Carousel />
 
       {/* About Section */}
@@ -29,7 +29,8 @@ export default function HomePage() {
         ref={aboutRef}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className="max-w-7xl mx-auto py-6 px-4 mt-5 flex flex-col md:flex-col md:items-start lg:flex-row md:w-full items-center gap-8"
+        className="max-w-7xl mx-auto py-10 px-4 mt-5 flex flex-col md:flex-col md:items-start 
+        lg:flex-row md:w-full items-center gap-8"
       >
         {/* Text Section */}
         <div className="w-full lg:w-1/2 ">
@@ -85,7 +86,7 @@ export default function HomePage() {
           initial={{ x: 100, opacity: 0 }}
           animate={aboutAnimate ? { x: 0, opacity: 1 } : { x: 100, opacity: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="md:w-full lg:w-1/2 relative rounded-lg overflow-hidden shadow-lg"
+          className="md:w-full lg:w-1/2 relative rounded-lg overflow-hidden mt-5 shadow-lg"
         >
           <Image
             src="/iccs-home-about.jpg"

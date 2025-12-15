@@ -1,5 +1,5 @@
 "use client";
-import { easeIn, easeInOut, easeOut, motion } from "framer-motion";
+import {easeInOut, easeOut, motion } from "framer-motion";
 import Image from "next/image";
 import React from "react";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
@@ -10,7 +10,7 @@ import Achievements from "@/components/Achievements";
 const page = () => {
   return (
     <section className="w-full h-full space-x-2">
-      <div className="relative w-full h-[400px] md:h-[600px]">
+      <div className="relative w-full h-[400px] md:h-screen">
         {/* Hero Section */}
         <Image
           src="/about-hero-3.jpg"
@@ -39,7 +39,7 @@ const page = () => {
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.6 }}
+            transition={{ delay: 0.5, duration: 1 }}
             className="text-2xl font-sm text-[#12066a]  font-semibold uppercase"
           >
             About Us
@@ -47,8 +47,8 @@ const page = () => {
           <motion.h1
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-            className="text-3xl md:text-4xl lg:text-5xl font-bold"
+            transition={{ delay: 0.5, duration:1 }}
+            className="text-3xl md:text-4xl lg:text-4xl font-bold"
           >
             <span className="text-[#997819] ">We Provide the Best </span>
             <br /> <span className="text-[#12066a]">Quality Online</span> <br />
@@ -57,7 +57,7 @@ const page = () => {
           <motion.p
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.7 }}
+            transition={{ delay: 0.7, duration:1 }}
             className="mt-4"
           >
             The International College of Contemporary Sciences, ICCS, is the
@@ -69,7 +69,7 @@ const page = () => {
           <motion.p
             initial={{ opacity: 0, x: -10 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.5, duration: 1 }}
+            transition={{ delay: 0.5, duration: 0.6 }}
             className="flex flex-row font-bold items-center gap-2 flex-nowrap mt-2"
           >
             <span className="text-[#997819] text-xl">
@@ -80,7 +80,7 @@ const page = () => {
           <motion.p
             initial={{ opacity: 0, x: -10 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.7, duration: 1 }}
+            transition={{ delay: 0.7, duration: 0.8 }}
             className="flex flex-row font-bold items-center gap-2 flex-nowrap mt-2"
           >
             <span className="text-[#997819] text-xl">
@@ -105,7 +105,7 @@ const page = () => {
         <motion.div
           initial={{ opacity: 0, x: 100 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ delay: 1 ,ease:easeOut}}
+          transition={{ delay:0.6 , duration:1 ,ease:easeOut}}
           className="relative h-[500px] w-full md:mt-8 lg:ml-15"
         >
           <Image
@@ -126,7 +126,7 @@ const page = () => {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, ease: easeInOut }}
+            transition={{ delay: 0.3,duration:1, ease: easeInOut }}
             className="text-3xl "
           >
             WHY CHOOSE ICCS
@@ -134,7 +134,7 @@ const page = () => {
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, ease: easeInOut }}
+            transition={{ delay: 0.5,duration:1, ease: easeInOut }}
             className="text-[#997819] text-3xl lg:text-5xl py-2 font-semibold"
           >
             The <span className="text-[#12066a] ">Best</span> Beneficial Side of
@@ -201,23 +201,23 @@ const page = () => {
       {/* Achievements  */}
       <Achievements />
       {/*  Vision  Section */}
-      <div className="flex flex-col bg-gray-100 md:flex-row px-4 md:px-6 lg:px-10 w-full gap-5 py-20">
+      <div className="flex flex-col bg-gray-100 md:flex-col lg:flex-row px-4 md:px-6 lg:px-10 w-full gap-5 py-20">
         {/* Left Info Section  */}
-        <div className="space-y-5 w-full md:w-1/2">
+        <div className="space-y-5 w-full lg:w-1/2">
           <h1 className="text-2xl md:text-5xl  text-[#12066a] font-bold">
             Our Vision
             {/* Divider  */}
             <motion.div
               initial={{ opacity: 0, width: 0 }}
               whileInView={{ opacity: 1, width: "32%" }}
-              transition={{ delay: 0.6 }}
-              className="h-1.5 bg-[#12066a] mt-2 mx-2 rounded-full mb-6 "
+              transition={{ delay: 0.6 ,duration:0.7}}
+              className="h-1.5 bg-[#12066a] mt-2 mx-1 rounded-full mb-6 "
             ></motion.div>
           </h1>
           <motion.p
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.5 }}
+            transition={{ delay: 0.5,duration:1 }}
             className="text-black"
           >
             The International College of Contemporary Sciences (ICCS) aspires to
@@ -244,8 +244,8 @@ const page = () => {
         <motion.div
           initial={{ opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.6, ease: easeInOut }}
-          className="w-full md:w-1/2 h-auto"
+          transition={{ delay: 0.6, duration:1, ease: easeInOut }}
+          className="w-full lg:w-1/2 h-auto"
         >
           <Image
             src="/PennWest.jpg"
@@ -257,11 +257,11 @@ const page = () => {
           />
         </motion.div>
       </div>
-      `{/* Our Mission Section  */}
+      {/* Our Mission Section  */}
       <motion.div 
       initial={{opacity:0,y:40}}
       whileInView={{opacity:1,y:0}}
-      transition={{delay:0.5}}
+      transition={{delay:0.5, duration:1}}
       
       className="max-w-7xl py-16 px-4 md:px-8 text-center ml-2 mr-2 sm:m-7 bg-gradient-to-r from-[#12066a] to-[#997819] text-white rounded-xl mb-10 mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold mb-4">Our Mission</h2>

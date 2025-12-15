@@ -25,7 +25,7 @@ const Navbar = () => {
       submenu: [
         { name: 'Dept of Aesthetic & Beauty Sciences', href: '/courses/aesthetic-beauty' },
         { name: 'Dept of Management Sciences', href: '/courses/management' },
-        { name: 'Dept of Computer Sciences', href: '/courses/computer' },
+        { name: 'Dept of Computer Sciences', href: '/cources/computer-sciences' },
         { name: 'Dept of Security Sciences', href: '/courses/security' },
         { name: 'English Language Lab', href: '/courses/english-lab' },
         { name: 'Fee Structure', href: '/courses/fees' },

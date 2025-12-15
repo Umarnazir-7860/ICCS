@@ -17,20 +17,20 @@ const Achievements = () => {
           <motion.div
             initial={{ opacity: 0, width: 0 }}
             whileInView={{ opacity: 1, width: "22%" }}
-            transition={{ delay: 0.6 }}
+            transition={{ delay: 0.6 ,duration:1}}
             className="h-1.5 bg-[#12066a] mt-3 mx-auto  rounded-full mb-6 "
           ></motion.div>
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 ">
           {achievementsData.map((item) => (
             <motion.div
               key={item.id}
-              initial={{ opacity: 0, x: 100 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1}}
              
-              transition={{ delay: item.delay, ease: easeIn }}
-              className="bg-white rounded-xl shadow-lg p-8 transition-transform hover:scale-105"
+              transition={{ delay:0.6,duration:1, ease: easeInOut }}
+              className="bg-white rounded-xl shadow-lg p-8 transition-transform hover:scale-105 border border-[#997819]"
             >
               <h3 className="text-4xl font-bold text-[#997819] mb-2">
                 {item.value}
