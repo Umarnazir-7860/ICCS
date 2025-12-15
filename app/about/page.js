@@ -22,8 +22,8 @@ const page = () => {
         <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
           <motion.h1
             initial={{ opacity: 0, y: 100 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 1 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.7, ease:easeInOut }}
             className="text-white text-3xl md:text-6xl mt-10 font-serif md:leading-18 font-bold text-center"
           >
             About International College
@@ -39,7 +39,7 @@ const page = () => {
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 1 }}
+            transition={{ delay: 0.5, duration: 0.7 }}
             className="text-2xl font-sm text-[#12066a]  font-semibold uppercase"
           >
             About Us
@@ -47,7 +47,7 @@ const page = () => {
           <motion.h1
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration:1 }}
+            transition={{ delay: 0.5, duration:0.7 }}
             className="text-3xl md:text-4xl lg:text-4xl font-bold"
           >
             <span className="text-[#997819] ">We Provide the Best </span>
@@ -57,7 +57,7 @@ const page = () => {
           <motion.p
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.7, duration:1 }}
+            transition={{ delay: 0.4, duration:0.7 }}
             className="mt-4"
           >
             The International College of Contemporary Sciences, ICCS, is the
@@ -105,7 +105,7 @@ const page = () => {
         <motion.div
           initial={{ opacity: 0, x: 100 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ delay:0.6 , duration:1 ,ease:easeOut}}
+          transition={{ delay:0.6 , duration:0.7 ,ease:easeOut}}
           className="relative h-[500px] w-full md:mt-8 lg:ml-15"
         >
           <Image
@@ -217,7 +217,7 @@ const page = () => {
           <motion.p
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.5,duration:1 }}
+            transition={{ delay: 0.5,duration:0.8 }}
             className="text-black"
           >
             The International College of Contemporary Sciences (ICCS) aspires to

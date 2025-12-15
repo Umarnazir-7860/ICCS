@@ -32,10 +32,10 @@ const Navbar = () => {
       ],
     },
     {
-      name: 'Student Services',
+      name: 'Student Services',href:'/student-services',
       submenu: [
         { name: 'Moodle Sign In', href: '/services/moodle' },
-        { name: 'Digital Learning Resources', href: '/services/resources' },
+        { name: 'Digital Learning Resources', href: '/student-services/digital-learning-resources' },
       ],
     },
     { name: 'Contact Us', href: '/contact' },

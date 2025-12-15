@@ -258,7 +258,7 @@ export default function HomePage() {
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5 }}
+        transition={{ delay: 0.5 , duration:0.6 }}
         className="max-w-7xl py-16 px-4 md:px-8 text-center 
         ml-2 mr-2 sm:mx-7 sm:mt-7 md:my-20 md:mx-20 bg-gradient-to-r from-[#12066a] to-[#997819] 
        text-white rounded-xl mb-10 mx-auto"

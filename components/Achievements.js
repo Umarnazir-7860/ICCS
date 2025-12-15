@@ -29,7 +29,7 @@ const Achievements = () => {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1}}
              
-              transition={{ delay:0.6,duration:1, ease: easeInOut }}
+              transition={{ delay:0.6,duration:0.6, ease: easeInOut }}
               className="bg-white rounded-xl shadow-lg p-8 transition-transform hover:scale-105 border border-[#997819]"
             >
               <h3 className="text-4xl font-bold text-[#997819] mb-2">
