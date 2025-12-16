@@ -64,14 +64,14 @@ const Carousel = () => {
 
                 {/* Overlay text */}
                 <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-                  <motion.h2
+                  <motion.h1
                     className="text-white text-3xl md:text-6xl font-serif font-bold text-center px-4"
                     initial={{ opacity: 0, y: 100 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3, duration: 0.8 }}
                   >
                     {slide.caption}
-                  </motion.h2>
+                  </motion.h1>
                 </div>
 
                 {/* Navigation buttons */}
