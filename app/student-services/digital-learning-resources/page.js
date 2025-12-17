@@ -3,6 +3,7 @@ import Image from "next/image";
 import React from "react";
 import { easeInOut, easeOut, motion } from "framer-motion";
 import Link from "next/link";
+import { LogIn, Search, MousePointer2, MessageSquare } from 'lucide-react';
 
 const page = () => {
   return (
@@ -21,7 +22,7 @@ const page = () => {
       {/* Resources Section  */}
       <div
         className="width-full bg-gray-100 flex flex-col justify-center
-       text-center my-18  md:mt-10 lg:my-3 px-6 md:px-10 py-10"
+       text-center my-1  md:mt-10 lg:my-3 px-6 md:px-10 py-5"
       >
         <div className="text-black  text-5xl">
           <motion.p
@@ -36,7 +37,7 @@ const page = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.6, ease: easeInOut }}
-            className="text-[#997819] text-3xl lg:text-5xl py-2 mx-10 font-semibold"
+            className="text-[#997819] text-2xl lg:text-5xl py-2 md:mx-10 font-semibold"
           >
             The <span className="text-[#12066a] ">Access curated</span> digital
             learning materials <br /> designed to support your studies
@@ -47,7 +48,7 @@ const page = () => {
           </motion.h2>
         </div>
         {/* Cards row 1  */}
-        <div className="grid grid-cols-1 md:grid-cols-2 space-x-7 lg:grid-cols-3">
+        <div className="grid grid-cols-1 md:grid-cols-2  space-x-7 lg:grid-cols-3">
           {/* Card 1   */}
           <div
             className=" shadow-xl rounded-xl p-10 my-7 transition-transform hover:scale-105 
@@ -197,13 +198,13 @@ const page = () => {
         </div>
       </div>
       {/* Our Resources importance  */}
-      <div className="flex  px-6 py-16 ">
-        <div className="flex flex-col sm:w-full md:w-1/2">
-          <h2 className="text-3xl md:text-5xl mx-10 font-bold text-[#12066a]">
+      <div className="flex flex-col md:flex-row px-4 md:px-6 md:py-16 ">
+        <div className="flex flex-col sm:w-full md:w-1/2 mb-4">
+          <h2 className="text-3xl md:text-5xl mx-0 md:mx-10 font-bold text-[#12066a]">
             Why Choose Our Digital Learning Resources?
           </h2>
 
-          <p className="text-gray-700 mt-6 mx-10">
+          <p className="text-gray-700 mt-6 md:mx-10">
             Our digital learning resources are carefully designed to support
             students at every stage of their academic journey, from foundational
             learning to advanced subject understanding. Each resource is
@@ -234,6 +235,186 @@ const page = () => {
           />
         </div>
       </div>
+     {/* ... Existing Sections ... */}
+
+
+{/* How to Access Section */}
+<div className="px-6 py-20 bg-gray-100">
+  <h1 className="text-[#12066a] py-20 text-3xl md:text-5xl font-bold text-center">
+    How to access DLR (step-by-step)
+  </h1>
+
+  <div className="max-w-7xl mx-auto">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8">
+
+      {/* STEP 1 */}
+      <motion.div
+        whileHover="hover"
+        initial="rest"
+        animate="rest"
+        className="relative group"
+      >
+        {/* Icon */}
+        <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 bg-[#937012] rounded-full flex items-center justify-center border-4 border-white shadow-lg z-20 transition-transform group-hover:scale-110">
+          <LogIn className="w-8 h-8 text-white" />
+        </div>
+
+        {/* Card */}
+        <div className="relative overflow-hidden bg-white pt-16 pb-12 px-6 rounded-tr-[60px] rounded-bl-[60px] rounded-tl-lg rounded-br-lg shadow-lg border border-gray-50">
+
+          {/* Black overlay */}
+          <motion.div
+            variants={{
+              rest: { x: "-100%" },
+              hover: { x: "0%" },
+            }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
+            className="absolute inset-0  bg-gradient-to-r from-[#12066a] to-[#997819] z-0"
+          />
+
+          {/* Content */}
+          <motion.div
+            variants={{
+              rest: { color: "#1f2937" },
+              hover: { color: "#ffffff" },
+            }}
+            transition={{ duration: 0.25 }}
+            className="relative z-10 text-center"
+          >
+            <h3 className="text-xl font-bold mb-4 uppercase tracking-wide">
+              Step 1
+            </h3>
+            <p className="text-[15px] leading-relaxed">
+              Log in to the ICCS UK portal with your student/staff credentials
+            </p>
+          </motion.div>
+        </div>
+      </motion.div>
+
+      {/* STEP 2 */}
+      <motion.div
+        whileHover="hover"
+        initial="rest"
+        animate="rest"
+        className="relative group"
+      >
+        <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 bg-[#12066a] rounded-full flex items-center justify-center border-4 border-white shadow-lg z-20 transition-transform group-hover:scale-110">
+          <Search className="w-8 h-8 text-white" />
+        </div>
+
+        <div className="relative overflow-hidden bg-white pt-16 pb-12 px-6 rounded-tr-[60px] rounded-bl-[60px] rounded-tl-lg rounded-br-lg shadow-lg border border-gray-50">
+
+          <motion.div
+            variants={{
+              rest: { x: "-100%" },
+              hover: { x: "0%" },
+            }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
+            className="absolute inset-0  bg-gradient-to-r from-[#12066a] to-[#997819] z-0"
+          />
+
+          <motion.div
+            variants={{
+              rest: { color: "#1f2937" },
+              hover: { color: "#ffffff" },
+            }}
+            transition={{ duration: 0.25 }}
+            className="relative z-10 text-center"
+          >
+            <h3 className="text-xl font-bold mb-4 uppercase tracking-wide">
+              Step 2
+            </h3>
+            <p className="text-[15px] leading-relaxed">
+              Use the DLR search to find books, articles, theses & databases.
+            </p>
+          </motion.div>
+        </div>
+      </motion.div>
+
+      {/* STEP 3 */}
+      <motion.div
+        whileHover="hover"
+        initial="rest"
+        animate="rest"
+        className="relative group"
+      >
+        <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 bg-[#937012] rounded-full flex items-center justify-center border-4 border-white shadow-lg z-20 transition-transform group-hover:scale-110">
+          <MousePointer2 className="w-8 h-8 text-white" />
+        </div>
+
+        <div className="relative overflow-hidden bg-white pt-16 pb-12 px-6 rounded-tr-[60px] rounded-bl-[60px] rounded-tl-lg rounded-br-lg shadow-lg border border-gray-50">
+
+          <motion.div
+            variants={{
+              rest: { x: "-100%" },
+              hover: { x: "0%" },
+            }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
+            className="absolute inset-0  bg-gradient-to-r from-[#12066a] to-[#997819] z-0"
+          />
+
+          <motion.div
+            variants={{
+              rest: { color: "#1f2937" },
+              hover: { color: "#ffffff" },
+            }}
+            transition={{ duration: 0.25 }}
+            className="relative z-10 text-center"
+          >
+            <h3 className="text-xl font-bold mb-4 uppercase tracking-wide">
+              Step 3
+            </h3>
+            <p className="text-[15px] leading-relaxed">
+              Click “Online access” or save to your reading list.
+            </p>
+          </motion.div>
+        </div>
+      </motion.div>
+
+      {/* STEP 4 */}
+      <motion.div
+        whileHover="hover"
+        initial="rest"
+        animate="rest"
+        className="relative group"
+      >
+        <div className="absolute -top-10 left-1/2  -translate-x-1/2 w-20 h-20 bg-[#12066a] rounded-full flex items-center justify-center border-4 border-white shadow-lg z-20 transition-transform group-hover:scale-110">
+          <MessageSquare className="w-8 h-8 text-white" />
+        </div>
+
+        <div className="relative overflow-hidden bg-white pt-16 pb-12 px-6 rounded-tr-[60px] rounded-bl-[60px] rounded-tl-lg rounded-br-lg shadow-lg border border-gray-50">
+
+          <motion.div
+            variants={{
+              rest: { x: "-100%" },
+              hover: { x: "0%" },
+            }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
+            className="absolute inset-0  bg-gradient-to-r from-[#12066a] to-[#997819] z-0"
+          />
+
+          <motion.div
+            variants={{
+              rest: { color: "#1f2937" },
+              hover: { color: "#ffffff" },
+            }}
+            transition={{ duration: 0.25 }}
+            className="relative z-10 text-center"
+          >
+            <h3 className="text-xl font-bold mb-4 uppercase tracking-wide">
+              Stuck?
+            </h3>
+            <p className="text-[15px] leading-relaxed">
+              Open Live Chat or request one-to-one academic assistance.
+            </p>
+          </motion.div>
+        </div>
+      </motion.div>
+
+    </div>
+  </div>
+</div>
+
     </section>
   );
 };
