@@ -239,7 +239,7 @@ const page = () => {
 
 
 {/* How to Access Section */}
-<div className="px-6 py-20 bg-gray-100">
+<div className="px-6 py-20 bg-gray-100 mb-[-30]">
   <h1 className="text-[#12066a] py-20 text-3xl md:text-5xl font-bold text-center">
     How to access DLR (step-by-step)
   </h1>
@@ -404,7 +404,7 @@ const page = () => {
             <h3 className="text-xl font-bold mb-4 uppercase tracking-wide">
               Stuck?
             </h3>
-            <p className="text-[15px] leading-relaxed">
+            <p className="text-[15px] leading-relaxed ]">
               Open Live Chat or request one-to-one academic assistance.
             </p>
           </motion.div>
