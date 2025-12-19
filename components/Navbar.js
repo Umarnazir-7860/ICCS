@@ -1,44 +1,59 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import Image from 'next/image';
-import Link from 'next/link';
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
+import { useTheme } from "@/components/ThemeProvider"; // path to your ThemeProvider
+import { SunIcon, MoonIcon } from "@heroicons/react/24/solid"; // Heroicons
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [hoveredMenu, setHoveredMenu] = useState(null);
+  const { theme, toggleTheme } = useTheme();
 
   const menuItems = [
-    { name: 'Home', href: '/' },
+    { name: "Home", href: "/" },
     {
-      name: 'About Us', href:'/about',
+      name: "About Us",
+      href: "/about",
       submenu: [
-        { name: 'Principal Message', href: '/about/principal-message' },
-        { name: 'About Us', href: '/about' },
-        { name: 'Our Core Values', href: '/about/core-values' },
-        { name: 'Policies & Procedures', href: '/about/policies' },
+        { name: "Principal Message", href: "/about/principal-message" },
+        { name: "About Us", href: "/about" },
+        { name: "Our Core Values", href: "/about/core-values" },
+        { name: "Policies & Procedures", href: "/about/policies" },
       ],
     },
     {
-      name: 'Courses',href:'/cources',
+      name: "Courses",
+      href: "/cources",
       submenu: [
-        { name: 'Dept of Aesthetic & Beauty Sciences', href: '/courses/aesthetic-beauty' },
-        { name: 'Dept of Management Sciences', href: '/courses/management' },
-        { name: 'Dept of Computer Sciences', href: '/cources/computer-sciences' },
-        { name: 'Dept of Security Sciences', href: '/courses/security' },
-        { name: 'English Language Lab', href: '/courses/english-lab' },
-        { name: 'Fee Structure', href: '/courses/fees' },
+        {
+          name: "Dept of Aesthetic & Beauty Sciences",
+          href: "/courses/aesthetic-beauty",
+        },
+        { name: "Dept of Management Sciences", href: "/courses/management" },
+        {
+          name: "Dept of Computer Sciences",
+          href: "/cources/computer-sciences",
+        },
+        { name: "Dept of Security Sciences", href: "/courses/security" },
+        { name: "English Language Lab", href: "/courses/english-lab" },
+        { name: "Fee Structure", href: "/courses/fees" },
       ],
     },
     {
-      name: 'Student Services',href:'/student-services',
+      name: "Student Services",
+      href: "/student-services",
       submenu: [
-        { name: 'Moodle Sign In', href: '/services/moodle' },
-        { name: 'Digital Learning Resources', href: '/student-services/digital-learning-resources' },
+        { name: "Moodle Sign In", href: "/services/moodle" },
+        {
+          name: "Digital Learning Resources",
+          href: "/student-services/digital-learning-resources",
+        },
       ],
     },
-    { name: 'Contact Us', href: '/contact' },
+    { name: "Contact Us", href: "/contact-us" },
   ];
 
   const dropdownVariants = {
@@ -48,7 +63,7 @@ const Navbar = () => {
 
   const mobileMenuVariants = {
     hidden: { height: 0, opacity: 0, transition: { duration: 0.3 } },
-    visible: { height: 'auto', opacity: 1, transition: { duration: 0.3 } },
+    visible: { height: "auto", opacity: 1, transition: { duration: 0.3 } },
   };
 
   return (
@@ -57,7 +72,12 @@ const Navbar = () => {
         {/* Logo */}
         <div className="flex-shrink-0">
           <Link href="/">
-            <Image src="/iccs-logo.png" alt="ICC Logo" width={160} height={50} />
+            <Image
+              src="/iccs-logo.png"
+              alt="ICC Logo"
+              width={160}
+              height={50}
+            />
           </Link>
         </div>
 
@@ -91,13 +111,13 @@ const Navbar = () => {
                     animate="visible"
                     exit="hidden"
                     variants={dropdownVariants}
-                    className="absolute top-full left-0 mt-2 w-60 bg-white shadow-xl rounded-xl p-3"
+                    className="absolute top-10 left-0 mt-2 w-60 bg-white shadow-xl rounded-xl p-3"
                   >
                     {item.submenu.map((sub, i) => (
                       <li key={i}>
                         <Link
                           href={sub.href}
-                          className="block px-4 py-2 hover:bg-[#12066a] hover:text-white rounded transition"
+                          className="block px-4 py-2 hover:bg-[#12066a] hover:text-white rounded-lg transition"
                         >
                           {sub.name}
                         </Link>
@@ -120,6 +140,19 @@ const Navbar = () => {
           </Link>
         </div>
 
+        {/* Theme Toggle */}
+        <button
+          onClick={toggleTheme}
+          className=" p-2 rounded-full  transition"
+          aria-label="Toggle Dark Mode"
+        >
+          {theme === "light" ? (
+            <MoonIcon className="h-6 w-6 text-[#12066a]" />
+          ) : (
+            <SunIcon className="h-6 w-6 text-[#997819]" />
+          )}
+        </button>
+
         {/* Mobile Menu Button */}
         <div className="lg:hidden">
           <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
@@ -131,9 +164,19 @@ const Navbar = () => {
               stroke="currentColor"
             >
               {mobileMenuOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
               ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
               )}
             </svg>
           </button>

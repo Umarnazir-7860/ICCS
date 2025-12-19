@@ -14,3 +14,47 @@ body, html {
   margin: 0;
   padding: 0;
 }
+
+/* Neon border wrapper */
+.neon-field {
+  position: relative;
+  padding: 3px;                 /* textarea ke liye thora zyada */
+  border-radius: 18px;          /* 🔑 important */
+  overflow: hidden;
+  background: transparent;
+}
+
+
+.neon-field::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: 14px;
+  background: linear-gradient(
+    120deg,
+    #12066a,
+    #997819,
+    #12066a
+  );
+  background-size: 200% 200%;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+/* Activate glow */
+.neon-field:focus-within::before,
+.neon-field:hover::before {
+  opacity: 1;
+  animation: neonFlow 3s linear infinite;
+}
+
+@keyframes neonFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}

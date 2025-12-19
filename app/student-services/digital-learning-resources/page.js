@@ -3,7 +3,7 @@ import Image from "next/image";
 import React from "react";
 import { easeInOut, easeOut, motion } from "framer-motion";
 import Link from "next/link";
-import { LogIn, Search, MousePointer2, MessageSquare } from 'lucide-react';
+import { LogIn, Search, MousePointer2, MessageSquare } from "lucide-react";
 
 const page = () => {
   return (
@@ -235,186 +235,180 @@ const page = () => {
           />
         </div>
       </div>
-     {/* ... Existing Sections ... */}
+      {/* ... Existing Sections ... */}
 
+      {/* How to Access Section */}
+      <div className="px-6 py-20 bg-gray-100 mb-[-30]">
+        <h1 className="text-[#12066a] py-20 text-3xl md:text-5xl font-bold text-center">
+          How to access DLR (step-by-step)
+        </h1>
 
-{/* How to Access Section */}
-<div className="px-6 py-20 bg-gray-100 mb-[-30]">
-  <h1 className="text-[#12066a] py-20 text-3xl md:text-5xl font-bold text-center">
-    How to access DLR (step-by-step)
-  </h1>
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8">
+            {/* STEP 1 */}
+            <motion.div
+              whileHover="hover"
+              initial="rest"
+              animate="rest"
+              className="relative group"
+            >
+              {/* Icon */}
+              <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 bg-[#937012] rounded-full flex items-center justify-center border-4 border-white shadow-lg z-20 transition-transform group-hover:scale-110">
+                <LogIn className="w-8 h-8 text-white" />
+              </div>
 
-  <div className="max-w-7xl mx-auto">
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8">
+              {/* Card */}
+              <div className="relative overflow-hidden bg-white pt-16 pb-12 px-6 rounded-tr-[60px] rounded-bl-[60px] rounded-tl-lg rounded-br-lg shadow-lg border border-gray-50">
+                {/* Black overlay */}
+                <motion.div
+                  variants={{
+                    rest: { x: "-100%" },
+                    hover: { x: "0%" },
+                  }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                  className="absolute inset-0  bg-gradient-to-r from-[#12066a] to-[#997819] z-0"
+                />
 
-      {/* STEP 1 */}
-      <motion.div
-        whileHover="hover"
-        initial="rest"
-        animate="rest"
-        className="relative group"
-      >
-        {/* Icon */}
-        <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 bg-[#937012] rounded-full flex items-center justify-center border-4 border-white shadow-lg z-20 transition-transform group-hover:scale-110">
-          <LogIn className="w-8 h-8 text-white" />
+                {/* Content */}
+                <motion.div
+                  variants={{
+                    rest: { color: "#1f2937" },
+                    hover: { color: "#ffffff" },
+                  }}
+                  transition={{ duration: 0.25 }}
+                  className="relative z-10 text-center"
+                >
+                  <h3 className="text-xl font-bold mb-4 uppercase tracking-wide">
+                    Step 1
+                  </h3>
+                  <p className="text-[15px] leading-relaxed">
+                    Log in to the ICCS UK portal with your student/staff
+                    credentials
+                  </p>
+                </motion.div>
+              </div>
+            </motion.div>
+
+            {/* STEP 2 */}
+            <motion.div
+              whileHover="hover"
+              initial="rest"
+              animate="rest"
+              className="relative group"
+            >
+              <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 bg-[#12066a] rounded-full flex items-center justify-center border-4 border-white shadow-lg z-20 transition-transform group-hover:scale-110">
+                <Search className="w-8 h-8 text-white" />
+              </div>
+
+              <div className="relative overflow-hidden bg-white pt-16 pb-12 px-6 rounded-tr-[60px] rounded-bl-[60px] rounded-tl-lg rounded-br-lg shadow-lg border border-gray-50">
+                <motion.div
+                  variants={{
+                    rest: { x: "-100%" },
+                    hover: { x: "0%" },
+                  }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                  className="absolute inset-0  bg-gradient-to-r from-[#12066a] to-[#997819] z-0"
+                />
+
+                <motion.div
+                  variants={{
+                    rest: { color: "#1f2937" },
+                    hover: { color: "#ffffff" },
+                  }}
+                  transition={{ duration: 0.25 }}
+                  className="relative z-10 text-center"
+                >
+                  <h3 className="text-xl font-bold mb-4 uppercase tracking-wide">
+                    Step 2
+                  </h3>
+                  <p className="text-[15px] leading-relaxed">
+                    Use the DLR search to find books, articles, theses &
+                    databases.
+                  </p>
+                </motion.div>
+              </div>
+            </motion.div>
+
+            {/* STEP 3 */}
+            <motion.div
+              whileHover="hover"
+              initial="rest"
+              animate="rest"
+              className="relative group"
+            >
+              <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 bg-[#937012] rounded-full flex items-center justify-center border-4 border-white shadow-lg z-20 transition-transform group-hover:scale-110">
+                <MousePointer2 className="w-8 h-8 text-white" />
+              </div>
+
+              <div className="relative overflow-hidden bg-white pt-16 pb-12 px-6 rounded-tr-[60px] rounded-bl-[60px] rounded-tl-lg rounded-br-lg shadow-lg border border-gray-50">
+                <motion.div
+                  variants={{
+                    rest: { x: "-100%" },
+                    hover: { x: "0%" },
+                  }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                  className="absolute inset-0  bg-gradient-to-r from-[#12066a] to-[#997819] z-0"
+                />
+
+                <motion.div
+                  variants={{
+                    rest: { color: "#1f2937" },
+                    hover: { color: "#ffffff" },
+                  }}
+                  transition={{ duration: 0.25 }}
+                  className="relative z-10 text-center"
+                >
+                  <h3 className="text-xl font-bold mb-4 uppercase tracking-wide">
+                    Step 3
+                  </h3>
+                  <p className="text-[15px] leading-relaxed">
+                    Click “Online access” or save to your reading list.
+                  </p>
+                </motion.div>
+              </div>
+            </motion.div>
+
+            {/* STEP 4 */}
+            <motion.div
+              whileHover="hover"
+              initial="rest"
+              animate="rest"
+              className="relative group"
+            >
+              <div className="absolute -top-10 left-1/2  -translate-x-1/2 w-20 h-20 bg-[#12066a] rounded-full flex items-center justify-center border-4 border-white shadow-lg z-20 transition-transform group-hover:scale-110">
+                <MessageSquare className="w-8 h-8 text-white" />
+              </div>
+
+              <div className="relative overflow-hidden bg-white pt-16 pb-12 px-6 rounded-tr-[60px] rounded-bl-[60px] rounded-tl-lg rounded-br-lg shadow-lg border border-gray-50">
+                <motion.div
+                  variants={{
+                    rest: { x: "-100%" },
+                    hover: { x: "0%" },
+                  }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                  className="absolute inset-0  bg-gradient-to-r from-[#12066a] to-[#997819] z-0"
+                />
+
+                <motion.div
+                  variants={{
+                    rest: { color: "#1f2937" },
+                    hover: { color: "#ffffff" },
+                  }}
+                  transition={{ duration: 0.25 }}
+                  className="relative z-10 text-center"
+                >
+                  <h3 className="text-xl font-bold mb-4 uppercase tracking-wide">
+                    Stuck?
+                  </h3>
+                  <p className="text-[15px] leading-relaxed ]">
+                    Open Live Chat or request one-to-one academic assistance.
+                  </p>
+                </motion.div>
+              </div>
+            </motion.div>
+          </div>
         </div>
-
-        {/* Card */}
-        <div className="relative overflow-hidden bg-white pt-16 pb-12 px-6 rounded-tr-[60px] rounded-bl-[60px] rounded-tl-lg rounded-br-lg shadow-lg border border-gray-50">
-
-          {/* Black overlay */}
-          <motion.div
-            variants={{
-              rest: { x: "-100%" },
-              hover: { x: "0%" },
-            }}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="absolute inset-0  bg-gradient-to-r from-[#12066a] to-[#997819] z-0"
-          />
-
-          {/* Content */}
-          <motion.div
-            variants={{
-              rest: { color: "#1f2937" },
-              hover: { color: "#ffffff" },
-            }}
-            transition={{ duration: 0.25 }}
-            className="relative z-10 text-center"
-          >
-            <h3 className="text-xl font-bold mb-4 uppercase tracking-wide">
-              Step 1
-            </h3>
-            <p className="text-[15px] leading-relaxed">
-              Log in to the ICCS UK portal with your student/staff credentials
-            </p>
-          </motion.div>
-        </div>
-      </motion.div>
-
-      {/* STEP 2 */}
-      <motion.div
-        whileHover="hover"
-        initial="rest"
-        animate="rest"
-        className="relative group"
-      >
-        <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 bg-[#12066a] rounded-full flex items-center justify-center border-4 border-white shadow-lg z-20 transition-transform group-hover:scale-110">
-          <Search className="w-8 h-8 text-white" />
-        </div>
-
-        <div className="relative overflow-hidden bg-white pt-16 pb-12 px-6 rounded-tr-[60px] rounded-bl-[60px] rounded-tl-lg rounded-br-lg shadow-lg border border-gray-50">
-
-          <motion.div
-            variants={{
-              rest: { x: "-100%" },
-              hover: { x: "0%" },
-            }}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="absolute inset-0  bg-gradient-to-r from-[#12066a] to-[#997819] z-0"
-          />
-
-          <motion.div
-            variants={{
-              rest: { color: "#1f2937" },
-              hover: { color: "#ffffff" },
-            }}
-            transition={{ duration: 0.25 }}
-            className="relative z-10 text-center"
-          >
-            <h3 className="text-xl font-bold mb-4 uppercase tracking-wide">
-              Step 2
-            </h3>
-            <p className="text-[15px] leading-relaxed">
-              Use the DLR search to find books, articles, theses & databases.
-            </p>
-          </motion.div>
-        </div>
-      </motion.div>
-
-      {/* STEP 3 */}
-      <motion.div
-        whileHover="hover"
-        initial="rest"
-        animate="rest"
-        className="relative group"
-      >
-        <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 bg-[#937012] rounded-full flex items-center justify-center border-4 border-white shadow-lg z-20 transition-transform group-hover:scale-110">
-          <MousePointer2 className="w-8 h-8 text-white" />
-        </div>
-
-        <div className="relative overflow-hidden bg-white pt-16 pb-12 px-6 rounded-tr-[60px] rounded-bl-[60px] rounded-tl-lg rounded-br-lg shadow-lg border border-gray-50">
-
-          <motion.div
-            variants={{
-              rest: { x: "-100%" },
-              hover: { x: "0%" },
-            }}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="absolute inset-0  bg-gradient-to-r from-[#12066a] to-[#997819] z-0"
-          />
-
-          <motion.div
-            variants={{
-              rest: { color: "#1f2937" },
-              hover: { color: "#ffffff" },
-            }}
-            transition={{ duration: 0.25 }}
-            className="relative z-10 text-center"
-          >
-            <h3 className="text-xl font-bold mb-4 uppercase tracking-wide">
-              Step 3
-            </h3>
-            <p className="text-[15px] leading-relaxed">
-              Click “Online access” or save to your reading list.
-            </p>
-          </motion.div>
-        </div>
-      </motion.div>
-
-      {/* STEP 4 */}
-      <motion.div
-        whileHover="hover"
-        initial="rest"
-        animate="rest"
-        className="relative group"
-      >
-        <div className="absolute -top-10 left-1/2  -translate-x-1/2 w-20 h-20 bg-[#12066a] rounded-full flex items-center justify-center border-4 border-white shadow-lg z-20 transition-transform group-hover:scale-110">
-          <MessageSquare className="w-8 h-8 text-white" />
-        </div>
-
-        <div className="relative overflow-hidden bg-white pt-16 pb-12 px-6 rounded-tr-[60px] rounded-bl-[60px] rounded-tl-lg rounded-br-lg shadow-lg border border-gray-50">
-
-          <motion.div
-            variants={{
-              rest: { x: "-100%" },
-              hover: { x: "0%" },
-            }}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="absolute inset-0  bg-gradient-to-r from-[#12066a] to-[#997819] z-0"
-          />
-
-          <motion.div
-            variants={{
-              rest: { color: "#1f2937" },
-              hover: { color: "#ffffff" },
-            }}
-            transition={{ duration: 0.25 }}
-            className="relative z-10 text-center"
-          >
-            <h3 className="text-xl font-bold mb-4 uppercase tracking-wide">
-              Stuck?
-            </h3>
-            <p className="text-[15px] leading-relaxed ]">
-              Open Live Chat or request one-to-one academic assistance.
-            </p>
-          </motion.div>
-        </div>
-      </motion.div>
-
-    </div>
-  </div>
-</div>
-
+      </div>
     </section>
   );
 };
