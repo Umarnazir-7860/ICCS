@@ -10,7 +10,7 @@ const ContactUs = () => {
     <section>
       {/* Hero Section */}
       <div className="relative h-screen">
-        <Image src="/university-campus.jpg" fill className="object-cover" />
+        <Image src="/university-campus.jpg" fill priority className="object-cover" />
         <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
           <motion.h1
             initial={{ opacity: 0, y: 100 }}

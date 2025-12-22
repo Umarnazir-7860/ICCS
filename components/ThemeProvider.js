@@ -1,30 +1,30 @@
-// ThemeProvider.jsx
-'use client';
-import { useState, useEffect, createContext, useContext } from 'react';
+"use client";
 
-const ThemeContext = createContext();
+import { useEffect, useState } from "react";
 
-export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState('light');
+export default function ThemeToggle() {
+  const [theme, setTheme] = useState("light");
 
   useEffect(() => {
-    // Load saved theme
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) setTheme(savedTheme);
+    const savedTheme = localStorage.getItem("theme") || "light";
+    setTheme(savedTheme);
+    document.documentElement.setAttribute("data-theme", savedTheme);
   }, []);
 
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-  }, [theme]);
-
-  const toggleTheme = () => setTheme(theme === 'light' ? 'dark' : 'light');
+  const toggleTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    document.documentElement.setAttribute("data-theme", newTheme);
+    localStorage.setItem("theme", newTheme);
+  };
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      {children}
-    </ThemeContext.Provider>
+    <button
+      className="btn btn-primary"
+      onClick={toggleTheme}
+      aria-label="Toggle Theme"
+    >
+      {theme === "light" ? "🌙" : "☀️"}
+    </button>
   );
-};
-
-export const useTheme = () => useContext(ThemeContext);
+}

@@ -15,7 +15,7 @@ const page = () => {
         <Image
           src="/about-hero-3.jpg"
           alt="About Hero"
-         fill // full container cover karega
+          fill // full container cover karega
           className="object-cover"
         />
 

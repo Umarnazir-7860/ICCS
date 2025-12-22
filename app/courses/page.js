@@ -14,6 +14,7 @@ const page = () => {
           src="/courses-hero-3.jpg"
           alt="Our Courses"
           fill // full container cover karega
+          priority
           className="object-cover"
         />
         {/* Text  */}

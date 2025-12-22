@@ -4,13 +4,13 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useTheme } from "@/components/ThemeProvider"; // path to your ThemeProvider
-import { SunIcon, MoonIcon } from "@heroicons/react/24/solid"; // Heroicons
+// import ThemeToggle from "@/components/ThemeToggle"; // path to your ThemeProvider
+// import { SunIcon, MoonIcon } from "@heroicons/react/24/solid"; // Heroicons
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [hoveredMenu, setHoveredMenu] = useState(null);
-  const { theme, toggleTheme } = useTheme();
+ 
 
   const menuItems = [
     { name: "Home", href: "/" },
@@ -26,7 +26,7 @@ const Navbar = () => {
     },
     {
       name: "Courses",
-      href: "/cources",
+      href: "/courses",
       submenu: [
         {
           name: "Dept of Aesthetic & Beauty Sciences",
@@ -35,7 +35,7 @@ const Navbar = () => {
         { name: "Dept of Management Sciences", href: "/courses/management" },
         {
           name: "Dept of Computer Sciences",
-          href: "/cources/computer-sciences",
+          href: "/courses/computer-sciences",
         },
         { name: "Dept of Security Sciences", href: "/courses/security" },
         { name: "English Language Lab", href: "/courses/english-lab" },
@@ -140,19 +140,10 @@ const Navbar = () => {
           </Link>
         </div>
 
-        {/* Theme Toggle */}
-        <button
-          onClick={toggleTheme}
-          className=" p-2 rounded-full  transition"
-          aria-label="Toggle Dark Mode"
-        >
-          {theme === "light" ? (
-            <MoonIcon className="h-6 w-6 text-[#12066a]" />
-          ) : (
-            <SunIcon className="h-6 w-6 text-[#997819]" />
-          )}
-        </button>
-
+        {/* Theme Toggle
+        <div className="flex items-center space-x-4">
+          <ThemeToggle/>
+        </div> */}
         {/* Mobile Menu Button */}
         <div className="lg:hidden">
           <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>

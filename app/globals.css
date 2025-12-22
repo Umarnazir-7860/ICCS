@@ -1,6 +1,6 @@
 @import "tailwindcss";
 @plugin "daisyui";
-
+ 
 /* Global overflow control */
 html, body {
   overflow-x: hidden; /* horizontally scroll na ho */
@@ -58,3 +58,6 @@ body, html {
     background-position: 200% 50%;
   }
 }
+
+
+
